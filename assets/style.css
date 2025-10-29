@@ -1,0 +1,188 @@
+html {
+  color-scheme: dark;
+}
+
+@font-face {
+  font-family: "Rodin";
+  src: url("Rodin-Light.woff2") format("woff2");
+}
+
+body {
+  margin: 0;
+  color: #d6cfb0;
+  visibility: visible;
+  font-family: Rodin, system-ui;
+}
+
+a {
+  color: #fff7d1;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+pre, ul {
+  margin: 0;
+  text-wrap: auto;
+}
+
+button {
+  background-color: #26231f;
+  color: #f0e8c5;
+  font-family: Rodin, system-ui;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: 0.1s ease-out;
+  transition-property: background-color, color;
+  &:hover, &:active, &.active {
+    background-color: #f0e8c5;
+    color: #26231f;
+  }
+  &:active {
+    background-color: #d6cfb0;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+.title {
+  img {
+    height: 1.25em;
+    filter: sepia(1);
+  }
+  img, span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+main {
+  margin: auto;
+  width: 50%;
+  min-width: 600px;
+  max-width: 800px;
+  @media (width < 660px) {
+    width: 95%;
+    min-width: unset;
+  }
+}
+
+#error {
+  background: #e45353;
+  color: #fdfaec;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+#load {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s ease-out;
+  transition-property: background-color, border-color;
+  border: 2px dashed #706c5c;
+  padding: 24px;
+  user-select: none;
+  .droptext {
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+  }
+  &:hover {
+    background-color: #d6cfb011;
+    cursor: pointer;
+  }
+  &:active, &.active {
+    background-color: #d6cfb022;
+    border-color: #a39d86;
+    &.active {
+      .droptext {visibility: visible;}
+      :not(.droptext) {visibility: hidden;}
+    }
+  }
+}
+
+#file {
+  height: 0;
+}
+
+#tabs {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  button {
+    flex: 1;
+  }
+}
+
+.tab {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.weapon {
+  padding: 8px 12px;
+  &.lv0 {
+    background-color: #1a1815;
+    color: #a39e86;
+  }
+  &.lv1 {
+    background-color: #262520;
+  }
+  &.lv2 {
+    background-color: #3c3932;
+  }
+  &.lv3 {
+    background-color: #59584c;
+  }
+  &.lv4 {
+    background-color: #d6cfb0;
+    color: #262520;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+  }
+  .materials {
+    margin-top: 4px;
+  }
+}
+
+.material {
+  display: flex;
+  justify-content: space-between;
+  &.low {
+    color: #e45353;
+  }
+}
+
+li:has(.low) {
+  color: #e45353;
+}
+
+#sum_controls {
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+
+#sum_materials.hide_sufficient li:not(.wpn):not(:has(.low)) {
+  display: none;
+}
+
+hr {
+  color: #706c5c;
+  border-style: solid;
+}
+
+footer {
+  margin-bottom: 8px;
+  font-size: 0.8em;
+}

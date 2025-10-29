@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NieR:Automata Weapon Materials Calculator</title>
+  <style>
+    /* placeholders to prevent unstyled content flash */
+    html {color-scheme: dark;}
+    body {background: #46433a; visibility: hidden;}
+  </style>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main>
+    <h3 class="title">
+      <img src="assets/logo.webp" alt="NieR:Automata">
+      <span>Weapon Materials Calculator</span>
+    </h3>
+    <div id="error" class="hide"></div>
+    <div id="load" onclick="savePrompt()">
+      <input type="file" id="file" accept=".dat">
+      <b class="droptext">Release to upload...</b>
+      <b>Drag your SlotData file here...</b>
+      <span>(or click to upload)</span>
+    </div>
+    <div id="stats" class="hide">
+      <div id="tabs">
+        <button data-tab="weapons">Weapon info</button>
+        <button data-tab="summary" class="active">Material summary</button>
+      </div>
+      <div class="tab hide" id="weapons"></div>
+      <div class="tab" id="summary">
+        <div id="sum_controls">
+          <div>
+            <span>Target level:</span>
+            <button id="sum_lv2">2</button>
+            <button id="sum_lv3">3</button>
+            <button id="sum_lv4">4</button>
+          </div>
+          <div>
+            <button id="sum_hide">Show sufficient</button>
+            <button id="sum_copy">Copy</button>
+            <button id="sum_download">Save</button>
+          </div>
+        </div>
+        <div class="materials hide_sufficient" id="sum_materials"></div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      hastily coded together by <a href="//nooot.su">notsu</a>
+      (<a href="//github.com/notsuu/automata-weapon-materials">source code</a>) &middot;
+      data taken from <a href="//nierautomata.wiki.fextralife.com/Weapons">fextralife wiki</a>
+      and <a href="//github.com/MysteryDash/NieR.Automata.Editor">MysteryDash's save editor</a>
+    </footer>
+  </main>
+</body>
+<script src="src/data.js"></script>
+<script src="src/global.js"></script>
+<script src="src/display.js"></script>
+<script src="src/save.js"></script>
+</html>
